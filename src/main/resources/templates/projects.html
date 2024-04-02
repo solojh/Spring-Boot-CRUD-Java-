@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Projects</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"  />
+</head>
+<body>
+<div class="container-fluid text-center">
+    <div><h2>Manage Projects</h2></div>
+    <div class="m-2">
+        <a class="h3" th:href="@{/projects/new}">Add New Project</a>
+    </div>
+
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Project Name</th>
+                <th>Enabled</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="project : ${listProjects}">
+                <tr>
+                    <td>[[${project.id}]]</td>
+                    <td>[[${project.projectName}]]</td>
+
+                    <td>[[${project.enabled}]]</td>
+                    <td>
+                        <a class="h4 mr-3" th:href="@{'/projects/edit/' + ${project.id}}">Edit</a>
+                        <a class="h4" th:href="@{'/projects/delete/' + ${project.id}}">Delete</a>
+                    </td>
+                </tr>
+            </th:block>
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+</body>
+</html>
