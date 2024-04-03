@@ -10,17 +10,11 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, unique = true, length = 45)
-    private String email;
+    @Column(length = 45, nullable = false, name = "department_name")
+    private String departmentName;
 
     @Column(length = 15, nullable = false)
-    private String password;
-
-    @Column(length = 45, nullable = false, name = "first_name")
-    private String firstName;
-
-    @Column(length = 45, nullable = false, name = "last_name")
-    private String lastName;
+    private String numberofEmployees;
 
     private boolean enabled;
 
@@ -32,46 +26,29 @@ public class Department {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+
+    public String getNumberofEmployees() {
+        return numberofEmployees;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setNumberofEmployees(String numberofEmployees) {
+        this.numberofEmployees = numberofEmployees;
     }
 
-    public String getPassword() {
-        return password;
+    public String getDepartmentName() {
+        return departmentName;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", departmentName='" + departmentName + '\'' +
+                ", numberofEmployees='" + numberofEmployees + '\'' +
                 '}';
     }
 

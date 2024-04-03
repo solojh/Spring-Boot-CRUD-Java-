@@ -10,17 +10,14 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(length = 45, nullable = false, name = "name")
+    private String Name;
+
     @Column(nullable = false, unique = true, length = 45)
-    private String email;
+    private String Email;
 
-    @Column(length = 15, nullable = false)
-    private String password;
-
-    @Column(length = 45, nullable = false, name = "first_name")
-    private String firstName;
-
-    @Column(length = 45, nullable = false, name = "last_name")
-    private String lastName;
+    @Column(length = 45, nullable = false, name = "position")
+    private String Position;
 
     private boolean enabled;
 
@@ -32,46 +29,37 @@ public class Employee {
         this.id = id;
     }
 
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String Name) {
+        this.Name = Name;
+    }
+
     public String getEmail() {
-        return email;
+        return Email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPosition() {
+        return Position;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setPosition(String position) {
+        this.Position = position;
     }
 
     @Override
     public String toString() {
         return "Employee{" +
                 "id=" + id +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", Name='" + Name + '\'' +
+                ", Email='" + Email + '\'' +
+                ", Position='" + Position + '\'' +
                 '}';
     }
 
@@ -83,4 +71,6 @@ public class Employee {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
+
+
 }

@@ -2,6 +2,7 @@ package com.mycompany;
 
 import com.mycompany.department.Department;
 import com.mycompany.department.DepartmentRepository;
+import com.mycompany.employee.Employee;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +14,15 @@ import java.util.Optional;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Rollback(false)
+
 public class DepartmentRepositoryTests {
     @Autowired private DepartmentRepository repo;
 
     @Test
     public void testAddNew() {
         Department department = new Department();
-        department.setEmail("jiehao@gmail.com");
-        department.setPassword("jie123456");
-        department.setFirstName("hao");
-        department.setLastName("Stevenson");
+        department.setDepartmentName("HR");
+        department.setNumberofEmployees("3");
 
         Department savedDepartment = repo.save(department);
 
@@ -43,14 +42,19 @@ public class DepartmentRepositoryTests {
 
     @Test
     public void testUpdate() {
-        Integer departmentId = 1;
-        Optional<Department> optionaldepartment = repo.findById(departmentId);
-        Department department = optionaldepartment.get();
-        department.setPassword("hello2000");
-        repo.save(department);
+        Department department = new Department();
+        department.setDepartmentName("hr");
+        department.setNumberofEmployees("3");
+        Department savedDepartment = repo.save(department);
 
-        Department updatedDepartment = repo.findById(departmentId).get();
-        Assertions.assertThat(updatedDepartment.getPassword()).isEqualTo("hello2000");
+        Optional<Department> optionaldepartment = repo.findById(savedDepartment.getId());
+        Department dd = optionaldepartment.get();
+
+        dd.setDepartmentName("Human resource");
+        repo.save(dd);
+
+        Department updatedDepartment = repo.findById(savedDepartment.getId()).get();
+        Assertions.assertThat(updatedDepartment.getDepartmentName()).isEqualTo("Human resource");
     }
 
     @Test

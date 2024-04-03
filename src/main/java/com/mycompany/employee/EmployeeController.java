@@ -15,9 +15,9 @@ public class EmployeeController {
     @Autowired private EmployeeService service;
 
     @GetMapping("/employees")
-    public String showUserList(Model model) {
+    public String showEmployeeList(Model model) {
         List<Employee> listEmployees = service.listAll();
-        model.addAttribute("listUsers", listEmployees);
+        model.addAttribute("listEmployees", listEmployees);
 
         return "employees";
     }
@@ -29,7 +29,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/employees/save")
-    public String saveUser(Employee employee, RedirectAttributes ra) {
+    public String saveEmployee(Employee employee, RedirectAttributes ra) {
         service.save(employee);
         ra.addFlashAttribute("message", "The employee has been saved successfully.");
         return "redirect:/employees";

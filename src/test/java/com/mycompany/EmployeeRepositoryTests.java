@@ -7,23 +7,21 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.annotation.Rollback;
 
 import java.util.Optional;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class EmployeeRepositoryTests {
-    @Autowired private EmployeeRepository repo;
+    @Autowired
+    private EmployeeRepository repo;
 
     @Test
     public void testAddNew() {
         Employee employee = new Employee();
+        employee.setName("ravi");
+        employee.setPosition("manager");
         employee.setEmail("ravi@gmail.com");
-        employee.setPassword("ravi123456");
-        employee.setFirstName("ravi");
-        employee.setLastName("kumar");
-
         Employee savedEmployee = repo.save(employee);
 
         Assertions.assertThat(savedEmployee).isNotNull();
@@ -32,32 +30,49 @@ public class EmployeeRepositoryTests {
 
     @Test
     public void testListAll() {
-        Iterable<Employee> employees = repo.findAll();
-        Assertions.assertThat(employees).hasSizeGreaterThan(0);
-
-        for (Employee employee : employees) {
-            System.out.println(employee);
+        //Arrange
+        for (int i = 0; i < 3; i++) {
+            Employee employee = new Employee();
+            employee.setName("NJH : " + i);
+            employee.setPosition("staff");
+            employee.setEmail("NJH"+i+"@gmail.com");
+            repo.save(employee);
         }
+        Iterable<Employee> employees = repo.findAll();
+        Assertions.assertThat(employees).hasSize(3);
     }
 
     @Test
     public void testUpdate() {
-        Integer employeeId = 1;
-        Optional<Employee> optionalEmployee = repo.findById(employeeId);
-        Employee employee = optionalEmployee.get();
-        employee.setPassword("hello2000");
-        repo.save(employee);
+        //Arrange
+        Employee employee = new Employee();
+        employee.setName("ABC");
+        employee.setPosition("manager");
+        employee.setEmail("ABC@gmail.com");
+        Employee savedEmployee = repo.save(employee);
 
-        Employee updatedemployee = repo.findById(employeeId).get();
-        Assertions.assertThat(updatedemployee.getPassword()).isEqualTo("hello2000");
+        Optional<Employee> optionalEmployee = repo.findById(savedEmployee.getId());
+        Employee ee = optionalEmployee.get();
+
+        ee.setName("CCK");
+        repo.save(ee);
+
+        Employee updatedemployee = repo.findById(savedEmployee.getId()).get();
+        Assertions.assertThat(updatedemployee.getName()).isEqualTo("CCK");
     }
 
     @Test
     public void testGet() {
-        Integer employeeId = 1;
-        Optional<Employee> optionalEmployee = repo.findById(employeeId);
+        //Arrange
+        Employee employee = new Employee();
+        employee.setName("ABC");
+        employee.setPosition("manager");
+        employee.setEmail("ABC@gmail.com");
+
+        Employee savedEmployee = repo.save(employee);
+        //Act
+        Optional<Employee> optionalEmployee = repo.findById(savedEmployee.getId());
         Assertions.assertThat(optionalEmployee).isPresent();
-        System.out.println(optionalEmployee.get());
     }
 
     @Test
@@ -65,7 +80,7 @@ public class EmployeeRepositoryTests {
         Integer employeeId = 2;
         repo.deleteById(employeeId);
 
-        Optional<Employee> optionalemployee = repo.findById(employeeId);
-        Assertions.assertThat(optionalemployee).isNotPresent();
+        Optional<Employee> optionalEmployee = repo.findById(employeeId);
+        Assertions.assertThat(optionalEmployee).isNotPresent();
     }
 }
