@@ -1,5 +1,7 @@
 package com.mycompany.employee;
 
+import com.mycompany.department.Department;
+import com.mycompany.department.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +14,10 @@ import java.util.List;
 
 @Controller
 public class EmployeeController {
-    @Autowired private EmployeeService service;
+    @Autowired
+    private EmployeeService service;
+    @Autowired
+    private DepartmentService departmentService;
 
     @GetMapping("/employees")
     public String showEmployeeList(Model model) {
@@ -21,10 +26,13 @@ public class EmployeeController {
 
         return "employees";
     }
+
     @GetMapping("/employees/new")
     public String showNewForm(Model model) {
         model.addAttribute("employee", new Employee());
         model.addAttribute("pageTitle", "Add New Employee");
+        List<Department> departments = departmentService.listAll();
+        model.addAttribute("departments", departments);
         return "employee_form";
     }
 
@@ -34,6 +42,7 @@ public class EmployeeController {
         ra.addFlashAttribute("message", "The employee has been saved successfully.");
         return "redirect:/employees";
     }
+
     @GetMapping("/employees/edit/{id}")
     public String showEditForm(@PathVariable("id") Integer id, Model model, RedirectAttributes ra) {
         try {
@@ -47,6 +56,7 @@ public class EmployeeController {
             return "redirect:/employees";
         }
     }
+
     @GetMapping("/employees/delete/{id}")
     public String deleteUser(@PathVariable("id") Integer id, RedirectAttributes ra) {
         try {
