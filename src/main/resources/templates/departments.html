@@ -22,7 +22,6 @@
             <tr>
                 <th>ID</th>
                 <th>Department Name</th>
-                <th>Number of Employees</th>
                 <th>Enabled</th>
                 <th></th>
             </tr>
@@ -32,7 +31,6 @@
                 <tr>
                     <td>[[${department.id}]]</td>
                     <td>[[${department.departmentName}]]</td>
-                    <td>[[${department.numberofEmployees}]]</td>
                     <td>[[${department.enabled}]]</td>
                     <td>
                         <a class="h4 mr-3" th:href="@{'/departments/edit/' + ${department.id}}">Edit</a>

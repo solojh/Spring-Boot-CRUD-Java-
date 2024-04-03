@@ -24,17 +24,20 @@
                 <th>Name</th>
                 <th>E-mail</th>
                 <th>Position</th>
+                <th>DepartmentId</th>
                 <th>Enabled</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
+<!--            for employee in listEmployees-->
             <th:block th:each="employee : ${listEmployees}">
                 <tr>
                     <td>[[${employee.id}]]</td>
                     <td>[[${employee.Name}]]</td>
                     <td>[[${employee.Email}]]</td>
                     <td>[[${employee.Position}]]</td>
+                    <td>[[${employee.department.departmentName}]]</td>
                     <td>[[${employee.enabled}]]</td>
                     <td>
                         <a class="h4 mr-3" th:href="@{'/employees/edit/' + ${employee.id}}">Edit</a>

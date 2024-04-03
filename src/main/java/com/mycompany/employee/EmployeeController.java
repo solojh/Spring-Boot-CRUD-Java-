@@ -49,8 +49,10 @@ public class EmployeeController {
             Employee employee = service.get(id);
             model.addAttribute("employee", employee);
             model.addAttribute("pageTitle", "Edit employee (ID: " + id + ")");
-
+            List<Department> departments = departmentService.listAll();
+            model.addAttribute("departments", departments);
             return "employee_form";
+
         } catch (EmployeeNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
             return "redirect:/employees";

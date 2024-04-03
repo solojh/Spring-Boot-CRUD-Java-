@@ -100,7 +100,6 @@ public class EmployeeRepositoryTests {
 
         Department department = new Department();
         department.setDepartmentName("hr");
-        department.setNumberofEmployees("3");
         Department savedDepartment = departmentRepository.save(department);
         //Act
         savedEmployee.setDepartment(savedDepartment);
@@ -125,14 +124,12 @@ public class EmployeeRepositoryTests {
 
         Department department = new Department();
         department.setDepartmentName("hr");
-        department.setNumberofEmployees("3");
         Department oldDepartment = departmentRepository.save(department);
         savedEmployee.setDepartment(oldDepartment);
         repo.save(savedEmployee);
         //Act
         Department newDepartment = new Department();
         newDepartment.setDepartmentName("it");
-        newDepartment.setNumberofEmployees("3");
         Department newSavedDepartment = departmentRepository.save(newDepartment);
         savedEmployee.setDepartment(newSavedDepartment);
         repo.save(savedEmployee);
@@ -157,7 +154,6 @@ public class EmployeeRepositoryTests {
 
         Department department = new Department();
         department.setDepartmentName("hr");
-        department.setNumberofEmployees("3");
         Department savedDepartment = departmentRepository.save(department);
         savedEmployee.setDepartment(savedDepartment);
         repo.save(savedEmployee);

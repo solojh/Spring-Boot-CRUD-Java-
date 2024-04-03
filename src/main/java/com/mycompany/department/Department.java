@@ -16,9 +16,6 @@ public class Department {
     @Column(length = 45, nullable = false, name = "department_name")
     private String departmentName;
 
-    @Column(length = 15, nullable = false)
-    private String numberofEmployees;
-
     @OneToMany(mappedBy = "department")
     private List<Employee> employee;
 
@@ -30,15 +27,6 @@ public class Department {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-
-    public String getNumberofEmployees() {
-        return numberofEmployees;
-    }
-
-    public void setNumberofEmployees(String numberofEmployees) {
-        this.numberofEmployees = numberofEmployees;
     }
 
     public String getDepartmentName() {
@@ -58,7 +46,6 @@ public class Department {
         return "User{" +
                 "id=" + id +
                 ", departmentName='" + departmentName + '\'' +
-                ", numberofEmployees='" + numberofEmployees + '\'' +
                 '}';
     }
 

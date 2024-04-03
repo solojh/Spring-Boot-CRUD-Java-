@@ -76,6 +76,7 @@ public class Employee {
                 ", Name='" + Name + '\'' +
                 ", Email='" + Email + '\'' +
                 ", Position='" + Position + '\'' +
+                ", department_id'" + department.getId() + '\'' +
                 '}';
     }
 

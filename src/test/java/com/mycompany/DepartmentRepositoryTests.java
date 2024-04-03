@@ -28,7 +28,6 @@ public class DepartmentRepositoryTests {
     public void testAddNew() {
         Department department = new Department();
         department.setDepartmentName("HR");
-        department.setNumberofEmployees("3");
 
         Department savedDepartment = repo.save(department);
 
@@ -41,7 +40,6 @@ public class DepartmentRepositoryTests {
         for (int i = 0; i < 3; i++) {
             Department department = new Department();
             department.setDepartmentName("hr");
-            department.setNumberofEmployees("3");
             repo.save(department);
         }
 
@@ -57,7 +55,6 @@ public class DepartmentRepositoryTests {
     public void testUpdate() {
         Department department = new Department();
         department.setDepartmentName("hr");
-        department.setNumberofEmployees("3");
         Department savedDepartment = repo.save(department);
 
         Optional<Department> optionaldepartment = repo.findById(savedDepartment.getId());
@@ -74,7 +71,6 @@ public class DepartmentRepositoryTests {
     public void testGet() {
         Department department = new Department();
         department.setDepartmentName("hr");
-        department.setNumberofEmployees("3");
         Department savedDepartment = repo.save(department);
 
         Optional<Department> optionalDepartment= repo.findById(savedDepartment.getId());
@@ -86,7 +82,6 @@ public class DepartmentRepositoryTests {
     public void testDelete() {
         Department department = new Department();
         department.setDepartmentName("hr");
-        department.setNumberofEmployees("3");
         Department savedDepartment = repo.save(department);
 
         repo.deleteById(savedDepartment.getId());
@@ -98,7 +93,6 @@ public class DepartmentRepositoryTests {
     public void testDepartmentNoEmployee() {
         Department department = new Department();
         department.setDepartmentName("hr");
-        department.setNumberofEmployees("3");
 
         Department savedDepartment = repo.save(department);
 
@@ -129,7 +123,6 @@ public class DepartmentRepositoryTests {
 // Arrange
         Department department = new Department();
         department.setDepartmentName("hr");
-        department.setNumberofEmployees("3");
 
         Department savedDepartment = repo.save(department);
 
@@ -159,7 +152,6 @@ public class DepartmentRepositoryTests {
         // Arrange
         Department department = new Department();
         department.setDepartmentName("hr");
-        department.setNumberofEmployees("3");
 
         Department savedDepartment = repo.save(department);
 
@@ -190,7 +182,6 @@ public class DepartmentRepositoryTests {
         // Arrange: Create and save a department
         Department department = new Department();
         department.setDepartmentName("it");
-        department.setNumberofEmployees("3");
         Department savedDepartment = repo.save(department);
 
         // Create and save two employees
