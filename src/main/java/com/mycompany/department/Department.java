@@ -49,6 +49,10 @@ public class Department {
         this.departmentName = departmentName;
     }
 
+    public List<Employee> getEmployee() { return employee; }
+
+    public void setEmployee(List<Employee> employee) { this.employee = employee; }
+
     @Override
     public String toString() {
         return "User{" +

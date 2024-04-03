@@ -1,6 +1,9 @@
 package com.mycompany.project;
 
+import com.mycompany.employee.Employee;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 
 @Entity
@@ -12,6 +15,9 @@ public class Project {
 
     @Column(length = 45, nullable = false, name = "project_name")
     private String ProjectName;
+
+//    @OneToMany(mappedBy = "project")
+//    private List<Employee> employee;
 
     private boolean enabled;
 
