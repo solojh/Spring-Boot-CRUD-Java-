@@ -32,8 +32,15 @@ public class DepartmentRepositoryTests {
 
     @Test
     public void testListAll() {
+        for (int i = 0; i < 3; i++) {
+            Department department = new Department();
+            department.setDepartmentName("hr");
+            department.setNumberofEmployees("3");
+            repo.save(department);
+        }
+
         Iterable<Department> departments = repo.findAll();
-        Assertions.assertThat(departments).hasSizeGreaterThan(0);
+        Assertions.assertThat(departments).hasSize(3);
 
         for (Department department : departments) {
             System.out.println(department);
@@ -59,18 +66,26 @@ public class DepartmentRepositoryTests {
 
     @Test
     public void testGet() {
-        Integer departmentId = 1;
-        Optional<Department> optionalDepartment= repo.findById(departmentId);
+        Department department = new Department();
+        department.setDepartmentName("hr");
+        department.setNumberofEmployees("3");
+        Department savedDepartment = repo.save(department);
+
+        Optional<Department> optionalDepartment= repo.findById(savedDepartment.getId());
         Assertions.assertThat(optionalDepartment).isPresent();
         System.out.println(optionalDepartment.get());
     }
 
     @Test
     public void testDelete() {
-        Integer departmentId = 2;
-        repo.deleteById(departmentId);
+        Department department = new Department();
+        department.setDepartmentName("hr");
+        department.setNumberofEmployees("3");
+        Department savedDepartment = repo.save(department);
 
-        Optional<Department> optionalDepartment = repo.findById(departmentId);
+        repo.deleteById(savedDepartment.getId());
+
+        Optional<Department> optionalDepartment = repo.findById(savedDepartment.getId());
         Assertions.assertThat(optionalDepartment).isNotPresent();
     }
 }
