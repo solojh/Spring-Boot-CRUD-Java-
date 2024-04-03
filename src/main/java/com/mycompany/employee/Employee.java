@@ -1,5 +1,6 @@
 package com.mycompany.employee;
 
+import com.mycompany.department.Department;
 import jakarta.persistence.*;
 
 
@@ -18,6 +19,13 @@ public class Employee {
 
     @Column(length = 45, nullable = false, name = "position")
     private String Position;
+
+    @OneToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
+
+//    @OneToMany(mappedBy = "employee")
+//    private List<Project> project;
 
     private boolean enabled;
 
@@ -51,6 +59,14 @@ public class Employee {
 
     public void setPosition(String position) {
         this.Position = position;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     @Override

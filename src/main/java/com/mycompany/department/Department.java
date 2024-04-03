@@ -1,6 +1,9 @@
 package com.mycompany.department;
 
+import com.mycompany.employee.Employee;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 
 @Entity
@@ -15,6 +18,9 @@ public class Department {
 
     @Column(length = 15, nullable = false)
     private String numberofEmployees;
+
+    @OneToMany(mappedBy = "department")
+    private List<Employee> employee;
 
     private boolean enabled;
 

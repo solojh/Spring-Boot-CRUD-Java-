@@ -1,5 +1,7 @@
 package com.mycompany;
 
+import com.mycompany.department.Department;
+import com.mycompany.department.DepartmentRepository;
 import com.mycompany.employee.Employee;
 import com.mycompany.employee.EmployeeRepository;
 import org.assertj.core.api.Assertions;
@@ -15,6 +17,8 @@ import java.util.Optional;
 public class EmployeeRepositoryTests {
     @Autowired
     private EmployeeRepository repo;
+    @Autowired
+    private DepartmentRepository departmentRepository;
 
     @Test
     public void testAddNew() {
@@ -35,7 +39,7 @@ public class EmployeeRepositoryTests {
             Employee employee = new Employee();
             employee.setName("NJH : " + i);
             employee.setPosition("staff");
-            employee.setEmail("NJH"+i+"@gmail.com");
+            employee.setEmail("NJH" + i + "@gmail.com");
             repo.save(employee);
         }
         Iterable<Employee> employees = repo.findAll();
@@ -82,5 +86,88 @@ public class EmployeeRepositoryTests {
 
         Optional<Employee> optionalEmployee = repo.findById(employeeId);
         Assertions.assertThat(optionalEmployee).isNotPresent();
+    }
+
+    @Test
+    public void testAddWithDepartment() {
+        //Arrange
+        Employee employee = new Employee();
+        employee.setName("ABC");
+        employee.setPosition("manager");
+        employee.setEmail("ABC@gmail.com");
+
+        Employee savedEmployee = repo.save(employee);
+
+        Department department = new Department();
+        department.setDepartmentName("hr");
+        department.setNumberofEmployees("3");
+        Department savedDepartment = departmentRepository.save(department);
+        //Act
+        savedEmployee.setDepartment(savedDepartment);
+        repo.save(savedEmployee);
+
+        //Assert
+        Optional<Employee> optionalEmployee = repo.findById(savedEmployee.getId());
+        Assertions.assertThat(optionalEmployee).isPresent();
+        Assertions.assertThat(optionalEmployee.get().getDepartment()).isNotNull();
+    }
+
+
+    @Test
+    public void testEmployeeCanChangeDepartment() {
+        //Arrange
+        Employee employee = new Employee();
+        employee.setName("ABC");
+        employee.setPosition("manager");
+        employee.setEmail("ABC@gmail.com");
+
+        Employee savedEmployee = repo.save(employee);
+
+        Department department = new Department();
+        department.setDepartmentName("hr");
+        department.setNumberofEmployees("3");
+        Department oldDepartment = departmentRepository.save(department);
+        savedEmployee.setDepartment(oldDepartment);
+        repo.save(savedEmployee);
+        //Act
+        Department newDepartment = new Department();
+        newDepartment.setDepartmentName("it");
+        newDepartment.setNumberofEmployees("3");
+        Department newSavedDepartment = departmentRepository.save(newDepartment);
+        savedEmployee.setDepartment(newSavedDepartment);
+        repo.save(savedEmployee);
+
+        //Assert
+        Optional<Employee> updatedEmployee = repo.findById(savedEmployee.getId());
+        Assertions.assertThat(updatedEmployee).isPresent();
+        Assertions.assertThat(updatedEmployee.get().getDepartment()).isNotNull();
+        Assertions.assertThat(updatedEmployee.get().getDepartment().getDepartmentName()).isEqualTo("it");
+
+    }
+
+    @Test
+    public void testEmployeeCanBeNoDepartment() {
+        //Arrange
+        Employee employee = new Employee();
+        employee.setName("ABC");
+        employee.setPosition("manager");
+        employee.setEmail("ABC@gmail.com");
+
+        Employee savedEmployee = repo.save(employee);
+
+        Department department = new Department();
+        department.setDepartmentName("hr");
+        department.setNumberofEmployees("3");
+        Department savedDepartment = departmentRepository.save(department);
+        savedEmployee.setDepartment(savedDepartment);
+        repo.save(savedEmployee);
+        //Act
+        savedEmployee.setDepartment(null);
+        repo.save(employee);
+
+        //Assert
+        Optional<Employee> updatedEmployee = repo.findById(savedEmployee.getId());
+        Assertions.assertThat(updatedEmployee).isPresent();
+        Assertions.assertThat(updatedEmployee.get().getDepartment()).isNull();
     }
 }
