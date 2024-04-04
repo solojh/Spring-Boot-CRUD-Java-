@@ -16,8 +16,13 @@ public class Project {
     @Column(length = 45, nullable = false, name = "project_name")
     private String ProjectName;
 
-//    @OneToMany(mappedBy = "project")
-//    private List<Employee> employee;
+    @ManyToMany
+    @JoinTable(
+            name = "employee_project",
+            joinColumns = @JoinColumn(name = "project_id"),
+            inverseJoinColumns = @JoinColumn(name = "employee_id")
+    )
+    private List<Employee> employees;
 
     private boolean enabled;
 
@@ -38,11 +43,17 @@ public class Project {
         this.ProjectName = projectName;
     }
 
+    public List<Employee> getEmployees() { return this.employees; }
+
+    public void setEmployees(List<Employee> employee) { this.employees = employee; }
+
+
     @Override
     public String toString() {
         return "Project{" +
                 "id=" + id +
                 ", projectName='" + ProjectName + '\'' +
+//                ", assignedemployees='" + List<Employee> + '\'' +
                 '}';
     }
 

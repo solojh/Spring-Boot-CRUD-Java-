@@ -1,7 +1,10 @@
 package com.mycompany.employee;
 
 import com.mycompany.department.Department;
+import com.mycompany.project.Project;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 
 @Entity
@@ -24,8 +27,13 @@ public class Employee {
     @JoinColumn(name = "department_id")
     private Department department;
 
-//    @OneToMany(mappedBy = "employee")
-//    private List<Project> project;
+    @ManyToMany(mappedBy = "employees")
+//    @JoinTable(
+//            name = "employee_project",
+//            joinColumns = @JoinColumn(name = "employee_id"),
+//            inverseJoinColumns = @JoinColumn(name = "project_id")
+//    )
+    private List<Project> projects;
 
     private boolean enabled;
 
@@ -41,16 +49,16 @@ public class Employee {
         return Name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.Name = name;
     }
 
     public String getEmail() {
         return Email;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.Email = email;
     }
 
     public String getPosition() {
@@ -65,9 +73,11 @@ public class Employee {
         return department;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
+    public void setDepartment(Department department) {this.department = department;}
+
+    public List<Project> getProjects() {return projects;}
+
+    public void setProject(List<Project> project) {this.projects = project;}
 
     @Override
     public String toString() {
@@ -77,6 +87,7 @@ public class Employee {
                 ", Email='" + Email + '\'' +
                 ", Position='" + Position + '\'' +
                 ", department_id'" + department.getId() + '\'' +
+        //        ", project_id'" + List<Project> + '\'' +
                 '}';
     }
 

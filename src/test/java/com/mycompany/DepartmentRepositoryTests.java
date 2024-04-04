@@ -26,11 +26,12 @@ public class DepartmentRepositoryTests {
 
     @Test
     public void testAddNew() {
+        // Arrange: Create a new department
         Department department = new Department();
         department.setDepartmentName("HR");
-
+        // Act: Save the new department
         Department savedDepartment = repo.save(department);
-
+        // Assert: Check if the department is saved successfully and has an ID greater than 0
         Assertions.assertThat(savedDepartment).isNotNull();
         Assertions.assertThat(savedDepartment.getId()).isGreaterThan(0);
     }
