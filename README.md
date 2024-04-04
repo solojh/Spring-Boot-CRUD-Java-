@@ -22,10 +22,12 @@ Technologies Used
 
 -Spring Data JPA Test
 
+### Setting up
+
 1.To run the "spring-boot-crud-intellij" project in IntelliJ IDEA, follow these steps:
 
 Clone the Repository: If you haven't already cloned the repository, you can do so by using Git on the command line:
-git clone https://github.com/solojh/spring-boot-crud-intellij.git
+```git clone https://github.com/solojh/spring-boot-crud-intellij.git```
 
 2.Open IntelliJ IDEA: Launch IntelliJ IDEA on your computer.
 
