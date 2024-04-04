@@ -12,18 +12,23 @@
             color: #333;
         }
         .container-fluid {
-            padding: 20px;
+            padding: 50px 20px; /* Increased padding for better spacing */
             text-align: center;
         }
-        h1, h2, h3 {
-            margin-bottom: 20px;
+        h1 {
+            margin-bottom: 40px; /* Increased margin for better spacing */
+            color: #007bff; /* Changed heading color to blue */
         }
-        a {
-            color: #007bff;
-            text-decoration: none;
+        .col-md-4 {
+            margin-bottom: 30px; /* Increased margin between columns */
         }
-        a:hover {
-            text-decoration: underline;
+        .btn {
+            width: 100%; /* Make buttons fill the entire column width */
+            margin-top: 10px; /* Added margin-top for better spacing */
+        }
+        /* Hover effect for buttons */
+        .btn:hover {
+            opacity: 0.8;
         }
     </style>
 </head>
@@ -33,16 +38,31 @@
     <h1>Welcome to Employee Management System</h1>
     <div class="row">
         <div class="col-md-4">
-            <h2>Manage Employees</h2>
-            <a class="btn btn-primary" th:href="@{/employees}">View Employees</a>
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Manage Employees</h2>
+                    <p class="card-text">View and manage employee records.</p>
+                    <a class="btn btn-primary" th:href="@{/employees}">View Employees</a>
+                </div>
+            </div>
         </div>
         <div class="col-md-4">
-            <h2>Manage Departments</h2>
-            <a class="btn btn-primary" th:href="@{/departments}">View Departments</a>
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Manage Departments</h2>
+                    <p class="card-text">View and manage department information.</p>
+                    <a class="btn btn-primary" th:href="@{/departments}">View Departments</a>
+                </div>
+            </div>
         </div>
         <div class="col-md-4">
-            <h2>Manage Projects</h2>
-            <a class="btn btn-primary" th:href="@{/projects}">View Projects</a>
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Manage Projects</h2>
+                    <p class="card-text">View and manage project details.</p>
+                    <a class="btn btn-primary" th:href="@{/projects}">View Projects</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

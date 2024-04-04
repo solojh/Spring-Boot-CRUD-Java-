@@ -57,4 +57,8 @@ public class DepartmentController {
         }
         return "redirect:/departments";
     }
+    @GetMapping("/index")
+    public String goToIndexPage() {
+        return "index"; // Thymeleaf template name
+    }
 }
