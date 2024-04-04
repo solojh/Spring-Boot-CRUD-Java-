@@ -87,7 +87,7 @@ public class Employee {
                 ", Email='" + Email + '\'' +
                 ", Position='" + Position + '\'' +
                 ", department_id'" + department.getId() + '\'' +
-        //        ", project_id'" + List<Project> + '\'' +
+                ", project_id'" + projects.toString() + '\'' +
                 '}';
     }
 

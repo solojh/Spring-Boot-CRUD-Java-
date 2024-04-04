@@ -22,6 +22,7 @@
             <tr>
                 <th>ID</th>
                 <th>Project Name</th>
+                <th>Assigned Employee Name</th>
                 <th>Enabled</th>
                 <th></th>
             </tr>
@@ -31,7 +32,11 @@
                 <tr>
                     <td>[[${project.id}]]</td>
                     <td>[[${project.projectName}]]</td>
-
+                    <td>
+                        <ol>
+                            <li th:each="e: ${project.employees}" th:text="${e.name}"></li>
+                        </ol>
+                    </td>
                     <td>[[${project.enabled}]]</td>
                     <td>
                         <a class="h4 mr-3" th:href="@{'/projects/edit/' + ${project.id}}">Edit</a>

@@ -43,17 +43,29 @@ public class Project {
         this.ProjectName = projectName;
     }
 
-    public List<Employee> getEmployees() { return this.employees; }
+    public List<Employee> getEmployees() {
+        return this.employees;
+    }
 
-    public void setEmployees(List<Employee> employee) { this.employees = employee; }
+    public void setEmployees(List<Employee> employee) {
+        this.employees = employee;
+    }
 
+    public String getEmployeeAsString() {
+        String temp = "";
+        for (int i = 0; i < this.employees.size(); i++) {
+            temp = temp + this.employees.get(i).getName() + ", ";
+        }
+
+        return temp;
+    }
 
     @Override
     public String toString() {
         return "Project{" +
                 "id=" + id +
                 ", projectName='" + ProjectName + '\'' +
-//                ", assignedemployees='" + List<Employee> + '\'' +
+//                ", assignedemployees='" + employees.() + '\'' +
                 '}';
     }
 
