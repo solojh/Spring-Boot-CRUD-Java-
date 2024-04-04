@@ -41,4 +41,5 @@ Clone the Repository:
 
 6.Visit http://localhost:8000 to see the website
 
-![1](https://github.com/solojh/Spring-Boot-CRUD-Java-Employee-Management-System/assets/97234810/c470d432-9bd4-4e27-8652-cad0160c9bcb)
+![2](https://github.com/solojh/Spring-Boot-CRUD-Java-Employee-Management-System/assets/97234810/6ab25cb9-2670-46e5-8edf-6d878a75fa69)
+
