@@ -36,9 +36,9 @@ Clone the Repository: If you haven't already cloned the repository, you can do s
 4.Wait for IntelliJ to Import the Project: IntelliJ will start importing the project. Wait for the process to complete.
 
 5.Configure MySQL Database: Make sure you have MySQL Community Server installed and running on your system. Configure the database connection properties in the application.properties file under the src/main/resources directory. You may need to modify the following properties:
-spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
+```spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name
 spring.datasource.username=your_mysql_username
-spring.datasource.password=your_mysql_password
+spring.datasource.password=your_mysql_password```
 
 6.Run the Application: Navigate to the Application.java file located in the src/main/java/com/example/demo directory. Right-click on the file and select Run Application or press Shift + F10.
 
