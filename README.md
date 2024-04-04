@@ -26,7 +26,7 @@ In this tutorial, you will learn to implement the User module with CRUD operatio
 
 1.To run the "spring-boot-crud-intellij" project in IntelliJ IDEA, follow these steps:
 Clone the Repository: 
-``git clone https://github.com/solojh/spring-boot-crud-intellij.git``
+`git clone https://github.com/solojh/spring-boot-crud-intellij.git`
 
 2.Open IntelliJ IDEA
 
