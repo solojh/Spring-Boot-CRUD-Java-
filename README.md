@@ -33,7 +33,7 @@ Clone the Repository:
 3.Open the Project: Click on File > Open and navigate to the directory where you cloned the "spring-boot-crud-intellij" repository. Select the root folder of the project and click OK.
 
 4.Configure MySQL Database: Make sure you have MySQL Community Server installed and running on your system. 
-``spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name``
+'''spring.datasource.url=jdbc:mysql://localhost:3306/your_database_name'''
 ``spring.datasource.username=your_mysql_username``
 ``spring.datasource.password=your_mysql_password``
 
