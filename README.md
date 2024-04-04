@@ -4,6 +4,9 @@ In this tutorial, you will learn to implement the User module with CRUD operatio
 
 ## Software Programs Required
 -Java Development Kit (OpenJDK)
+
 -IntelliJ IDEA Ultimate
+
 -MySQL Community Server
+
 -MySQL Workbench
