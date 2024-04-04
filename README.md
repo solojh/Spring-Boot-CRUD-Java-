@@ -3,13 +3,13 @@ This repository contains the source code and resources for a video tutorial seri
 In this tutorial, you will learn to implement the User module with CRUD operations (Create, Retrieve, Update, and Delete).
 
 ### Software Programs Required
-@Java Development Kit (OpenJDK)
+-Java Development Kit (OpenJDK)
 
-@IntelliJ IDEA Ultimate
+-IntelliJ IDEA Ultimate
 
-@MySQL Community Server
+-MySQL Community Server
 
-@MySQL Workbench
+-MySQL Workbench
 
 ### Technologies Used
 -Spring Boot Web
@@ -41,3 +41,4 @@ Clone the Repository:
 
 6.Visit http://localhost:8000 to see the website
 
+![1](https://github.com/solojh/Spring-Boot-CRUD-Java-Employee-Management-System/assets/97234810/c470d432-9bd4-4e27-8652-cad0160c9bcb)
