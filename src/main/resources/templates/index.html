@@ -2,20 +2,49 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to My Application</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"  />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container-fluid {
+            padding: 20px;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            margin-bottom: 20px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-<div class="container-fluid text-center">
-    <h1>Employee Management System</h1>
-        <a class="h2" th:href="@{/employees}">Manage Employees</a>
-    <h2>
-        <a class="h2" th:href="@{/departments}">Manage Departments</a>
-    </h2>
-    <h3>
-        <a class="h2" th:href="@{/projects}">Manage Projects</a>
-    </h3>
+<div class="container-fluid">
+    <h1>Welcome to Employee Management System</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Manage Employees</h2>
+            <a class="btn btn-primary" th:href="@{/employees}">View Employees</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Manage Departments</h2>
+            <a class="btn btn-primary" th:href="@{/departments}">View Departments</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Manage Projects</h2>
+            <a class="btn btn-primary" th:href="@{/projects}">View Projects</a>
+        </div>
+    </div>
 </div>
 </body>
 </html>
