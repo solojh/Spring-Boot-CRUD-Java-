@@ -3,13 +3,13 @@ This repository contains the source code and resources for a video tutorial seri
 In this tutorial, you will learn to implement the User module with CRUD operations (Create, Retrieve, Update, and Delete).
 
 ### Software Programs Required
--Java Development Kit (OpenJDK)
+@Java Development Kit (OpenJDK)
 
--IntelliJ IDEA Ultimate
+@IntelliJ IDEA Ultimate
 
--MySQL Community Server
+@MySQL Community Server
 
--MySQL Workbench
+@MySQL Workbench
 
 ### Technologies Used
 -Spring Boot Web
