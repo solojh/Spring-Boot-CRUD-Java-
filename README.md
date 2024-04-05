@@ -43,5 +43,30 @@ Clone the Repository:
 
 ![2](https://github.com/solojh/Spring-Boot-CRUD-Java-Employee-Management-System/assets/97234810/6ab25cb9-2670-46e5-8edf-6d878a75fa69)
 
+### API Endpoint
+Get All Employees
+```Method: GET
+Path: /employees
+Description: Retrieves a list of all employees.~~~
+
+Create New Employee
+Method: POST
+Path: /employees/save
+Description: Creates a new employee.
+Request: JSON object representing the new employee.
+Response: Success message.
+Edit Employee
+Method: GET
+Path: /employees/edit/{id}
+Description: Retrieves the employee with the specified ID for editing.
+Request: None
+Response: JSON object of the employee.
+Delete Employee
+Method: GET
+Path: /employees/delete/{id}
+Description: Deletes the employee with the specified ID.
+Request: None
+Response: Success message.
+
 
 
