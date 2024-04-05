@@ -1,6 +1,6 @@
 ## Spring Boot User Module CRUD Operations Tutorial
 This repository contains the source code on developing a Java web application using Spring Boot, IntelliJ IDEA, and various other technologies. 
-This is my first Java Project to implement the User module with CRUD operations (Create, Retrieve, Update, and Delete).
+This is my first Java Project to implement the User module with CRUD operations (Create, Read, Update, and Delete).
 
 ### Software Programs Required
 -Java Development Kit (OpenJDK)
