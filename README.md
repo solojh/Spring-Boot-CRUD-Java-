@@ -44,8 +44,8 @@ Clone the Repository:
 ![2](https://github.com/solojh/Spring-Boot-CRUD-Java-Employee-Management-System/assets/97234810/6ab25cb9-2670-46e5-8edf-6d878a75fa69)
 
 ### API Endpoint
-Get All Employees
-```Method: GET
+```Get All Employees
+Method: GET
 Path: /employees
 Description: Retrieves a list of all employees.
 
